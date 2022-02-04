@@ -35,27 +35,28 @@ Footer: credits.
 
 >Data Structure
 
-Class Felicitos:
--Felicitos png. and properties. Posición de inicio.
-Method:
--Movements : front, left, right, jump. 
+- Class Felicitos:
+Felicitos png. and properties. Posición de inicio.
+
+- Method:
+Movements : front, left, right, jump. 
 
 
-Class Ya Meless:
--Ya Meless png. and properties. Posición de inicio.
-Method:
--Movements : front (desde lado contrario a Felicitos)
--Frecuencia en la que aparece.  
+- Class Ya Meless:
+Ya Meless png. and properties. Posición de inicio.
+- Method:
+Movements : front (desde lado contrario a Felicitos)
+Frecuencia en la que aparece.  
 
-Class Helmets:
--Helmets png. and properties.  
-Method:
--Lugares en los que aparece. 
--Frecuencia en la que aparece.
+- Class Helmets:
+Helmets png. and properties.  
+- Method:
+Lugares en los que aparece.
+Frecuencia en la que aparece.
 
 Functions:
--To start game
--Timer to end game
+- To start game
+- Timer to end game
 
 
 
