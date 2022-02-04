@@ -2,6 +2,7 @@ Project's name:
 
 A Ruedas
 
+![STICKER SIN ARROBA](https://user-images.githubusercontent.com/98284387/152545259-9e670218-1481-4c7c-9416-7cbd73891ee5.png)
 
 Description:
 
@@ -9,6 +10,7 @@ A Ruedas consist in helping Felicitos, a Drag King who loves to skate, arrive at
 
 
 MVP
+
 Four screens:
 1. Splash screen 
 The games name, brief introduction and instructions on how to play. Image of felicitos face, button tu start.
@@ -21,6 +23,7 @@ Image of Felicitos sad. Button tu restar the game.
 
 
 Backlog
+
 The blocking elements will be rocks in the road. 
 
 
