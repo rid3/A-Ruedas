@@ -8,6 +8,9 @@ Description:
 
 A Ruedas consist in helping Felicitos, a Drag King who loves to skate, arrive at his gig. Sometimes getting to the stage can be more difficult than it seems, but it´s obviously worth it. 
 
+![felicitos en skate](https://user-images.githubusercontent.com/98284387/152545526-3a902e85-f519-4b37-9e71-e1b7c6d49efc.png)
+
+
 
 MVP
 
