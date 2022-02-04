@@ -1,58 +1,66 @@
-Project's name:
+>Project's name:
 
 A Ruedas
 
-![STICKER SIN ARROBA](https://user-images.githubusercontent.com/98284387/152545259-9e670218-1481-4c7c-9416-7cbd73891ee5.png)
 
-Description:
+>Description:
 
-A Ruedas consist in helping Felicitos, a Drag King who loves to skate, arrive at his gig. Sometimes getting to the stage can be more difficult than it seems, but it´s obviously worth it. 
-
-![felicitos en skate](https://user-images.githubusercontent.com/98284387/152545526-3a902e85-f519-4b37-9e71-e1b7c6d49efc.png)
+A Ruedas consist in helping Felicitos, a Drag King who loves to skate, arrive at his gig. Felicitos has to overcame the shame monster "Ya Meless", because sometimes, getting to the stage can be more difficult than it seems.  
 
 
 
-MVP
+>MVP
 
 Four screens:
 1. Splash screen 
-The games name, brief introduction and instructions on how to play. Image of felicitos face, button tu start.
+The game name, brief introduction and instructions on how to play. Image of felicitos and the monster. Button to start.
+Footer: credits.
 2. The game screen
-Image of Felicitos on his skate, rolling across the field while from time to time appear some difficulties and rewards (to score maybe).
+Image of Felicitos on his skate, rolling across the field while Ya Meless tries to distroy him. Meanwhile graving the helmets he founds on the way. 
 3. You won screen
-Image of Felicitos on the stage. Button tu restart the game. 
+Image of Felicitos on the stage. Link to Felicitos IG "Go and meet Felicitos". Button to splash screen.
+footer : credits.
 4.You loose screen
-Image of Felicitos sad. Button tu restar the game.
+Image of Felicitos sad. Button to try again.
+Footer: credits. 
 
 
-Backlog
-
-The blocking elements will be rocks in the road. 
+>Backlog // Bonus
 
 
-## Data structure
-Classes and methods definition. Or functions.
 
 
-## States y States Transitions
+>Data Structure
+
+Class Felicitos:
+-Felicitos png. and properties. Posición de inicio.
+Method:
+-Movements : front, left, right, jump. 
+
+
+Class Ya Meless:
+-Ya Meless png. and properties. Posición de inicio.
+Method:
+-Movements : front (desde lado contrario a Felicitos)
+-Frecuencia en la que aparece.  
+
+Class Helmets:
+-Helmets png. and properties.  
+Method:
+-Lugares en los que aparece. 
+-Frecuencia en la que aparece.
+
+
+>States and Transitions
 Definition of the different states and their transition (transition functions)
 
-- splashScreen
-- gameScreen
-- gameoverScreen
-- winScreen
-
-
-## Task
+- SplashScreen
+- GameScreen
+- GameoverScreen
+- WinScreen
 
 
 
-## Additional Links
+>Trello 
+https://trello.com/rid310/home
 
-
-### Trello
-[Link url](https://trello.com)
-
-
-### Slides
-[Link Slides.com](http://slides.com)
