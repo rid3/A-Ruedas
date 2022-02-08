@@ -10,23 +10,24 @@ class Juego {
             //van arrays porque van a ser muchos en loop
             this.yamelessArr =[new YaMeless(0)]; //argumento de posicion Y, donde empezas. 
             this.yamelessSeparation = 500; //cada cuánto van a salir
+            this.rayoArr =[new Rayo()]; //array porque voy a crear muchos rayos
     
             this.juegoOn = true; //propiedad que voy a usar para acabar el juego, el loop de request animation frame.
     
-    
-            //this.rayoArr =[];
+            
         }
     
-    //FUNCIONES
-    
+    //FUNCIONES------------------------------------------------------
+
+    //YA MELESS----------------
     //que aparezca muchas veces, que se repita. 
     spawningYaMeless = () => {
-        let lastYaM = this.yamelessArr[this.yamelessArr.length -1] //agarramos el último
+        let lastYaM = this.yamelessArr[this.yamelessArr.length -1] //agarramos el último/primero
         
-        if (lastYaM.x < (canvasGameScreen.width - this.yamelessSeparation)) { // le restamos el valor de separación entre Ya Meless
+        if (lastYaM.x < (canvasGameScreen.width - this.yamelessSeparation)) { //cuándo aparecerán
             //console.log("yey")
             let randomY = Math.random() * 700 //creo el aleatoreo de posición
-            let newYaMeless = new YaMeless(randomY) //estas creando otro objeto a la distancia que le dijiste que apareca antes
+            let newYaMeless = new YaMeless(randomY) //estas creando otro objeto a la distancia que le dijiste que aparezca antes
             this.yamelessArr.push(newYaMeless) //agregando el nuevo que creaste al array que esta en las propiedades
     
         }
@@ -48,25 +49,48 @@ class Juego {
     
         }
         }
+
+
+    //RAYO--------------
+    //funcion para aleatorio rayo
+    spawningRayo = () => {
+        //creo la variable sobre la que voy a actuar, la que va a servir de referencia
+        let lastRayo = this.rayoArr [this.rayoArr.length - 1]
+
+        if ( lastRayo < )
+    }
+
+
+
+
+
+    //que aparezca aleatoreamente 
+
     
-    
+       //BG IMG--------------------------
         drawBgImage = () => {
             ctx.drawImage (this.bgImage, 0, 0, canvasGameScreen.width, canvasGameScreen.height)
         }
-    
+        
+        //CLEAR CANVAS -------------------
         clearCanvas = () => {
             ctx.clearRect(0,0, canvasGameScreen.width, canvasGameScreen.height);
         }
     
-     //MÉTODOS 
+     //MÉTODOS ---------------------------------------------------
+
     loopJuego = () => {
         //console.log("anda el request");
     
         //1.Limpiar el canvas
         this.clearCanvas();
     
+
         //2.Mover los elementos
+
+        //-----YA MELESS SE MUEVE---
         //this.yameless.moveYaMeless() no se esta moviendo no funciona
+
         this.yamelessArr.forEach ((eachYa) => {
             eachYa.moveYaMeless()
         })
@@ -79,8 +103,13 @@ class Juego {
             this.choqueYaMelessFelicitos(eachYaM) //le pasa el parámetro el for each
     
     
-        })
-    
+        });
+
+        //----------RAYO SE MUEVE---
+        //confirmado rayo se mueve sobre eje Y
+        this.rayoArr.forEach ((eachRay) => {
+         eachRay.apareceRayo()
+        });
     
     
         //3.Dibujar los elementos 
@@ -92,10 +121,16 @@ class Juego {
          this.yamelessArr.forEach((eachYaMeless)=> {
              eachYaMeless.drawYaMeless()
          });
+         
+
+        //confirmado que rayo aparece 
+        this.rayoArr.forEach((eachRayo) => {
+            eachRayo.drawRayo()
+        });
     
-        //this.rayo.drawRayo();
-    
-    
+
+
+
         //4.Recursión para la animación, crea el loop, se autollama a si misma. Con propiedad en condicional que si es false va a hacer que pare.  
         if (this.juegoOn === true) {
         requestAnimationFrame(this.loopJuego)

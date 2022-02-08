@@ -29,7 +29,7 @@ const ahoraSi = () => {
   reglasScreen.style.display = "none";
   canvasGameScreen.style.display = "flex";
 
-  //acción para que empiece el juego:
+  //acción para que empiece/se cree el juego:
   nuevoJuego = new Juego();
   //console.log(nuevoJuego);
   nuevoJuego.loopJuego();
