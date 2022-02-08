@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    background-image: url("./imagenes/concrete.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contieneTodo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+
+  }
+
+/*FOOTER*/
+#footer {
+  background-color: black;
+  color:white;
+  font-family: monospace;
+}
+
+
+
+/*BOTONES*/
+
+  #reglas-button, #gameoverscreen-button, #start-button, #youwonscreen-button  {
+    margin-top: 20px;
+    width: 400px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-family: monospace;
+
+    border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(227, 227, 66);
+  border-width: 5px;
+  }
+
+
+
+
+  /*     CANVAS      */
+#my-canvas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  background-color: lightblue;
+    
+  }
+
+
+
+
+/*LO QUE SE VÉ AL INICIO */
+#my-canvas, #youwon-screen, #gameover-screen, #instrucciones-screen {
+  display: none;
+}
