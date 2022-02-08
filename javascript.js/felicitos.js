@@ -1,7 +1,7 @@
 class Felicitos {
     constructor (){
         this.img = new Image ()
-        this.img.src = "./imagenes/felicitos en skate.png"
+        this.img.src = "./imagenes/felicitos en skate CORRE.png"
         //posición en donde arranca
         this.x = 30;
         this.y= 350;

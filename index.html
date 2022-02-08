@@ -13,7 +13,10 @@
     <div class = "contieneTodo">
 
         <!--SPLASH SCREEN-->
-        <div id="splash-screen" class="contieneTodo">           
+        <div id="splash-screen" class="contieneTodo"> 
+            <button id="music">MUSIC ON</button>
+
+            <!-- <div id="score">SCORE:<span>0</span></div>       -->
 
            <img src="./imagenes/felicitos principio.jpg" width="1300" height="900">
 
@@ -30,10 +33,15 @@
          </div>
 
         <!--GAME SCREEN CANVAS-->
+         
+           <!-- <div id="score">SCORE:<span>0</span></div> -->
         <canvas id="my-canvas" width="1300" height="900"></canvas> 
+        
 
         <!--GAME OVER SCREER-->
         <div id="gameover-screen" class="contieneTodo">
+
+             <div id="score">SCORE:<span>0</span></div> 
 
             <img src="./imagenes/felicitos pierde.jpg"1400" height="1100">
             <button id="gameoverscreen-button">INICIO</button>
@@ -43,7 +51,10 @@
         <!--YOU WON GAME SCREER-->
         <div id="youwon-screen" class="contieneTodo" >
 
+            <div id="score">SCORE:<span>0</span></div> 
+
             <img src="./imagenes/felicitos gana.jpg" width="1400" height="1100">
+
             <button id="youwonscreen-button">INICIO</button>
         </div>
     </div>

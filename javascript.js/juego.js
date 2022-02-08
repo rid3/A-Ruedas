@@ -10,7 +10,10 @@ class Juego {
             //van arrays porque van a ser muchos en loop
             this.yamelessArr =[new YaMeless(0)]; //argumento de posicion Y, donde empezas. 
             this.yamelessSeparation = 500; //cada cuánto van a salir
-            this.rayoArr =[new Rayo()]; //array porque voy a crear muchos rayos
+            this.rayoArr =[new Rayo(0)]; //array porque voy a crear muchos rayos
+            this.rayoSeparation = 2500;
+            this.rayoCount = 0;
+            
     
             this.juegoOn = true; //propiedad que voy a usar para acabar el juego, el loop de request animation frame.
     
@@ -42,10 +45,11 @@ class Juego {
             this.felicitos.y < eachYaMl.y + eachYaMl.height &&
             this.felicitos.height + this.felicitos.y > eachYaMl.y)
             {/*console.log("chocarooon") acá debería terminar el juego*/
-            this.juegoOn === false; 
+            this.juegoOn = false; 
     
             canvasGameScreen.style.display = "none";
             looseGameScreen.style.display = "flex";
+
     
         }
         }
@@ -54,15 +58,63 @@ class Juego {
     //RAYO--------------
     //funcion para aleatorio rayo
     spawningRayo = () => {
-        //creo la variable sobre la que voy a actuar, la que va a servir de referencia
-        let lastRayo = this.rayoArr [this.rayoArr.length - 1]
+   //creo la variable sobre la que voy a actuar, la que va a servir de referencia
+         let lastRayo = this.rayoArr [this.rayoArr.length - 1]
 
-        if ( lastRayo < )
-    }
+         if ( lastRayo.y < canvasGameScreen.height - this.rayoSeparation ) {
+             let randomX = Math.random () * 800;
+             let newRayo = new Rayo (randomX)
+             this.rayoArr.push(newRayo)
+         }
+     }
+                          //dos parámetros para poder borrar el elemento
+     choqueRayoFelicitos = (eachRay, i ) => {
+
+         if (this.felicitos.x < eachRay.x + eachRay.width &&
+            this.felicitos.x + this.felicitos.width > eachRay.x &&
+            this.felicitos.y < eachRay.y + eachRay.height &&
+            this.felicitos.height + this.felicitos.y > eachRay.y) {
+                //console.log("lo hicimos lo hicimos lo hicimos muy bien, cruzamos el puente..")
+              (this.rayoCount += 1);
+             countScore.innerText = this.rayoCount;
+           
+            //this.rayoArr.splice(eachRay[0], 1)
+
+            //(this.rayoCount += 1);
+
+            //countScore.innerText = this.rayoCount;
+
+            }
+     }
+
+     printScore = () => {
+         ctx.font = "30px impact";
+         ctx.fillStyle = "#000000";
+         ctx.fillText("Score: "+ this.rayoCount, 780, 40);
+          
+     }
+
+     //SET TIME OUT 
+  
+     setTimeOutFunc = () => {
+
+        setTimeout ( () => {
+
+            this.juegoOn = false; 
+            canvasGameScreen.style.display = "none";
+            wonGameScreen.style.display = "flex";
+
+        }, 50000) 
+     }
 
 
+//  felicitosChoca = () => {
 
-
+//     if (this.felicitos > canvasGameScreen.width)
+//     {
+//         console.log("chocó");
+//     }
+//  }
 
     //que aparezca aleatoreamente 
 
@@ -78,7 +130,7 @@ class Juego {
         }
     
      //MÉTODOS ---------------------------------------------------
-
+  //LOOP JUEGO LOOP JUEGO LOOP JUEGO LOOP JUEGO LOOP JUEGO
     loopJuego = () => {
         //console.log("anda el request");
     
@@ -102,7 +154,6 @@ class Juego {
             //invoco a la función que chequea si chocaron
             this.choqueYaMelessFelicitos(eachYaM) //le pasa el parámetro el for each
     
-    
         });
 
         //----------RAYO SE MUEVE---
@@ -110,12 +161,22 @@ class Juego {
         this.rayoArr.forEach ((eachRay) => {
          eachRay.apareceRayo()
         });
+
+        this.spawningRayo(); //aparece aleatoreamente
+
+        //agarrando cada rayo y viendo si se chocan
+        this.rayoArr.forEach ((eachRayo, i) => {
+            this.choqueRayoFelicitos(eachRayo, i) //parametros para eliminar fueguitos
+            
+        });
+
     
     
         //3.Dibujar los elementos 
          //dibujo el bgImage
          this.drawBgImage();
          this.felicitos.drawFelicitos();
+   
     
          //lo llamo así porque es un array
          this.yamelessArr.forEach((eachYaMeless)=> {
@@ -127,11 +188,18 @@ class Juego {
         this.rayoArr.forEach((eachRayo) => {
             eachRayo.drawRayo()
         });
-    
+
+        this.printScore();
+
+        //ACÁ PONGO EL SCORE?
 
 
+
+
+        
 
         //4.Recursión para la animación, crea el loop, se autollama a si misma. Con propiedad en condicional que si es false va a hacer que pare.  
+        
         if (this.juegoOn === true) {
         requestAnimationFrame(this.loopJuego)
         }

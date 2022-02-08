@@ -4,12 +4,17 @@ let looseGameScreen = document.querySelector("#gameover-screen");
 let wonGameScreen = document.querySelector("#youwon-screen");
 let reglasScreen = document.querySelector("#instrucciones-screen");
 
+let countScore = document.querySelector("#score span");
+
+//const music = new Audio("/Paciencia II.mp3");
+
+
+
 let nuevoJuego;
 
 //CANVAS VARIABLES
 let canvasGameScreen = document.querySelector("#my-canvas");
 const ctx = canvasGameScreen.getContext("2d");
-
 
 
 
@@ -19,6 +24,8 @@ const ctx = canvasGameScreen.getContext("2d");
 const startGame = () => {
   startGameScreen.style.display = "none";
   reglasScreen.style.display = "flex";
+  // music.play();
+  // music.loop =true;
 };
 
 
@@ -28,11 +35,16 @@ const startGame = () => {
 const ahoraSi = () => {
   reglasScreen.style.display = "none";
   canvasGameScreen.style.display = "flex";
-
   //acción para que empiece/se cree el juego:
   nuevoJuego = new Juego();
   //console.log(nuevoJuego);
+
+  //nuevoJuego.felicitosChoca();
+
+  nuevoJuego.setTimeOutFunc();
   nuevoJuego.loopJuego();
+
+
 };
 
 
@@ -41,6 +53,7 @@ const ahoraSi = () => {
 
 //botón desde loose screen para volver a empezar
 const looseButtonReStart = () => {
+  //console.log(looseGameScreen)
   looseGameScreen.style.display = "none";
   startGameScreen.style.display = "flex";
 };
@@ -52,6 +65,13 @@ const youWonReStart = () => {
 };
 
 
+
+//botón música
+const musicplease = () => {
+  const audio = new Audio("/Paciencia II.mp3");
+  audio.play();
+}
+ 
 
 
 
@@ -68,6 +88,13 @@ buttonYouWonScreen.addEventListener("click", youWonReStart);
 
 let buttonReglasScreen = document.querySelector("#reglas-button");
 buttonReglasScreen.addEventListener("click", ahoraSi);
+
+let musicButton = document.querySelector("#music");
+musicButton.addEventListener("click",musicplease);
+
+
+
+//let audio = document.querySelector("audio");
 
 //PARA MOVER A FELICITOS
 

@@ -2,7 +2,7 @@ class YaMeless {
     constructor(posY) {
       //parametro que mandas para definir "y" en spwaningYaMeless
       this.img = new Image();
-      this.img.src = "../imagenes/monstruo - Ya Meless II.png";
+      this.img.src = "../imagenes/Ya Meless Corre.png";
       this.x = canvasGameScreen.width;
       this.y = posY; //va a depender del argumento que le doy cuando la creo
       this.width = 180;
@@ -15,6 +15,6 @@ class YaMeless {
   
 
     moveYaMeless = () => {
-      this.x = this.x - 6;
+      this.x = this.x - 2;
     };
   }
