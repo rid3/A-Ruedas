@@ -5,9 +5,9 @@ class Felicitos {
         //posición en donde arranca
         this.x = 30;
         this.y= 350;
-        this.width = 180;
-        this.height = 180;
-        this.move = 40;
+        this.width = 130;
+        this.height = 130;
+        this.move = 20;
     }
 
 

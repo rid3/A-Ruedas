@@ -78,6 +78,7 @@ class Juego {
                 //this.rayoArr.splice(eachRay[i],1);
                 (this.rayoCount += 1);
              countScore.innerText = this.rayoCount;
+             countScoreGana.innerText = this.rayoCount;
            
              //QUE DESAPAREZCA 1. que lo reconozca 2. que agarre ese que choca (con el index) y lo saque del canvas (o del array? splice) si lo saca del array tmb lo saca del canvas.
             //el error: Uncaught TypeError: Cannot read properties of undefined (reading 'y')
@@ -92,7 +93,7 @@ class Juego {
      }
 
      printScore = () => {
-         ctx.font = "30px impact";
+         ctx.font = "20px monospace";
          ctx.fillStyle = "#000000";
          ctx.fillText("Score: "+ this.rayoCount, 780, 40);
           

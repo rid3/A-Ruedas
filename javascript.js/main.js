@@ -5,6 +5,7 @@ let wonGameScreen = document.querySelector("#youwon-screen");
 let reglasScreen = document.querySelector("#instrucciones-screen");
 
 let countScore = document.querySelector("#score span");
+let countScoreGana = document.querySelector("#score-gana");
 
 //const music = new Audio("/Paciencia II.mp3");
 

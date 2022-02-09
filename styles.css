@@ -10,22 +10,24 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
   }
 
-#score {
+#score, #score-gana {
+  margin-top: 0px;
 margin-bottom: 20px;
-  width: 300px;
-  height: 60px;
+  width: 130px;
+  height: 20px;
   background-color: black;
   color: white;
   justify-content: center;
   text-align: center;
-  font-size: 30px;
+  font-size: 15px;
   font-family: monospace;
-padding-bottom: 10px;
-padding-top: 20px;
+padding-bottom: 0px;
+padding-top: 0px;
   border-radius: 10px;
 border-style: solid;
 border-color: rgb(215, 43, 43);
@@ -36,13 +38,14 @@ border-width: 5px;
 
 /*FOOTER*/
 #footer {
+  margin-bottom: 0px;
   background-color: black;
   color:white;
   font-family: monospace;
-  font-size: 17px;
-  height: 40px;
+  font-size: 8px;
+  height: 15px;
   padding-top: 7px;
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 
@@ -51,29 +54,30 @@ border-width: 5px;
 
   #reglas-button, #gameoverscreen-button, #start-button, #youwonscreen-button  {
     margin-top: 20px;
-    width: 400px;
-    height: 100px;
+    margin-bottom: 0px;
+    width: 150px;
+    height: 40px;
     background-color: black;
     color: white;
     text-align: center;
-    font-size: 30px;
+    font-size: 15px;
     font-family: monospace;
 
-    border-radius: 10px;
+  border-radius: 6px;
   border-style: solid;
   border-color: rgb(227, 227, 66);
   border-width: 5px;
   }
 
   #music {
-    margin-top: 20px;
+    margin-top: 0 px;
     margin-bottom: 10px;
-    width: 200px;
-    height: 60px;
+    width: 150px;
+    height: 40px;
     background-color: black;
     color: white;
     text-align: center;
-    font-size: 30px;
+    font-size: 15px;
     font-family: monospace;
 
 
@@ -85,7 +89,9 @@ border-width: 5px;
 
   }
 
-
+  #instrucciones-img {
+    margin-top: 50px;
+  }
 
 
   /*     CANVAS      */
@@ -94,7 +100,7 @@ border-width: 5px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px;
+  margin: 0px;
   background-color: lightblue;
     
   }

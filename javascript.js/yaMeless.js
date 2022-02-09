@@ -5,9 +5,9 @@ class YaMeless {
       this.img.src = "./imagenes/yaCorre.png";
       this.x = canvasGameScreen.width;
       this.y = posY; //va a depender del argumento que le doy cuando la creo
-      this.width = 180;
-      this.height = 180;
-      this.velocity = 7;
+      this.width = 120;
+      this.height = 120;
+      this.velocity = 4;
 
     }
   
