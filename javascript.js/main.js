@@ -68,7 +68,7 @@ const youWonReStart = () => {
 
 //botón música
 const musicplease = () => {
-  const audio = new Audio("./paciencia II.mp3");
+  const audio = new Audio("./Paciencia II.mp3");
   audio.play();
 }
  
