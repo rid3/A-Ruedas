@@ -1,7 +1,7 @@
 class Rayo {
     constructor(randomX) {
       this.img = new Image();
-      this.img.src = "../imagenes/rayo.png";
+      this.img.src = "./imagenes/rayo.png";
       this.x = randomX
       this.y = canvasGameScreen.height;
       this.width = 90;
