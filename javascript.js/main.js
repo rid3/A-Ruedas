@@ -41,7 +41,7 @@ const ahoraSi = () => {
 
   //nuevoJuego.felicitosChoca();
 
-  nuevoJuego.setTimeOutFunc();
+  // nuevoJuego.setTimeOutFunc();
   nuevoJuego.loopJuego();
 
 

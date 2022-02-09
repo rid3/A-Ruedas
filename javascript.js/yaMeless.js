@@ -7,6 +7,8 @@ class YaMeless {
       this.y = posY; //va a depender del argumento que le doy cuando la creo
       this.width = 180;
       this.height = 180;
+      this.velocity = 7;
+
     }
   
     drawYaMeless = () => {
@@ -15,6 +17,6 @@ class YaMeless {
   
 
     moveYaMeless = () => {
-      this.x = this.x - 2;
+      this.x = this.x - this.velocity;
     };
   }

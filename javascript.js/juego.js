@@ -61,7 +61,7 @@ class Juego {
    //creo la variable sobre la que voy a actuar, la que va a servir de referencia
          let lastRayo = this.rayoArr [this.rayoArr.length - 1]
 
-         if ( lastRayo.y < canvasGameScreen.height - this.rayoSeparation ) {
+         if ( this.rayoArr.length === 0 || lastRayo.y < canvasGameScreen.height - this.rayoSeparation) {
              let randomX = Math.random () * 800;
              let newRayo = new Rayo (randomX)
              this.rayoArr.push(newRayo)
@@ -75,13 +75,17 @@ class Juego {
             this.felicitos.y < eachRay.y + eachRay.height &&
             this.felicitos.height + this.felicitos.y > eachRay.y) {
                 //console.log("lo hicimos lo hicimos lo hicimos muy bien, cruzamos el puente..")
-              (this.rayoCount += 1);
+                //this.rayoArr.splice(eachRay[i],1);
+                (this.rayoCount += 1);
              countScore.innerText = this.rayoCount;
            
-            //this.rayoArr.splice(eachRay[0], 1)
+             //QUE DESAPAREZCA 1. que lo reconozca 2. que agarre ese que choca (con el index) y lo saque del canvas (o del array? splice) si lo saca del array tmb lo saca del canvas.
+            //el error: Uncaught TypeError: Cannot read properties of undefined (reading 'y')
+            
+            this.rayoArr.splice(i, 1)
+            this.rayoArr.push();
 
             //(this.rayoCount += 1);
-
             //countScore.innerText = this.rayoCount;
 
             }
@@ -96,29 +100,28 @@ class Juego {
 
      //SET TIME OUT 
   
-     setTimeOutFunc = () => {
+    //  setTimeOutFunc = () => {
 
-        setTimeout ( () => {
+    //     setTimeout ( () => {
 
-            this.juegoOn = false; 
-            canvasGameScreen.style.display = "none";
-            wonGameScreen.style.display = "flex";
+    //         this.juegoOn = false; 
+    //         canvasGameScreen.style.display = "none";
+    //         wonGameScreen.style.display = "flex";
 
-        }, 50000) 
+    //     }, 50000) 
+    //  }
+
+
+        felicitosChoca = () => {
+
+     if (this.felicitos.x > canvasGameScreen.width)
+     {
+         this.juegoOn = false; //console.log("chocó") esto funcionó
+         canvasGameScreen.style.display = "none";
+         wonGameScreen.style.display = "flex";
      }
+  }
 
-
-//  felicitosChoca = () => {
-
-//     if (this.felicitos > canvasGameScreen.width)
-//     {
-//         console.log("chocó");
-//     }
-//  }
-
-    //que aparezca aleatoreamente 
-
-    
        //BG IMG--------------------------
         drawBgImage = () => {
             ctx.drawImage (this.bgImage, 0, 0, canvasGameScreen.width, canvasGameScreen.height)
@@ -165,10 +168,16 @@ class Juego {
         this.spawningRayo(); //aparece aleatoreamente
 
         //agarrando cada rayo y viendo si se chocan
-        this.rayoArr.forEach ((eachRayo, i) => {
-            this.choqueRayoFelicitos(eachRayo, i) //parametros para eliminar fueguitos
+        this.rayoArr.forEach ((eachRayo) => {
+            this.choqueRayoFelicitos(eachRayo) //parametros para eliminar fueguitos
             
         });
+
+
+
+        //FELICITOS CHOCA
+        this.felicitosChoca();
+
 
     
     

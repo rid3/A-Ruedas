@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JUEGO</title>
-    <link rel="stylesheet" href="styles.css"> 
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--EMPIEZA EL ARMADO 4REAL-->
+    <div class="contieneTodo">
+      <!--SPLASH SCREEN-->
+      <div id="splash-screen" class="contieneTodo">
+        <button id="music">MUSIC ON</button>
 
-<!--EMPIEZA EL ARMADO 4REAL-->
-    <div class = "contieneTodo">
+        <!-- <div id="score">SCORE:<span>0</span></div>       -->
 
-        <!--SPLASH SCREEN-->
-        <div id="splash-screen" class="contieneTodo"> 
-            <button id="music">MUSIC ON</button>
+        <img
+          src="./imagenes/felicitos principio.jpg"
+          width="1300"
+          height="900"
+        />
 
-            <!-- <div id="score">SCORE:<span>0</span></div>       -->
+        <button id="start-button">INSTRUCCIONES</button>
+      </div>
 
-           <img src="./imagenes/felicitos principio.jpg" width="1300" height="900">
+      <!--INSTRUCCIONES SCREEN-->
 
-           <button id="start-button"> INSTRUCCIONES </button> 
-        </div>
+      <div id="instrucciones-screen" class="contieneTodo">
+        <img
+          src="./imagenes/prueba para reglas.jpg"
+          width="1300"
+          height="900"
+        />
 
-        <!--INSTRUCCIONES SCREEN-->
+        <button id="reglas-button">¡COMENCEMOS!</button>
+      </div>
 
-        <div id="instrucciones-screen" class="contieneTodo">           
+      <!--GAME SCREEN CANVAS-->
 
-            <img src="./imagenes/prueba para reglas.jpg" width="1300" height="900">
- 
-            <button id="reglas-button"> ¡COMENCEMOS! </button> 
-         </div>
+      <!-- <div id="score">SCORE:<span>0</span></div> -->
+      <canvas id="my-canvas" width="1300" height="900"></canvas>
 
-        <!--GAME SCREEN CANVAS-->
-         
-           <!-- <div id="score">SCORE:<span>0</span></div> -->
-        <canvas id="my-canvas" width="1300" height="900"></canvas> 
-        
+      <!--GAME OVER SCREER-->
+      <div id="gameover-screen" class="contieneTodo">
+        <div id="score">SCORE:<span>0</span></div>
 
-        <!--GAME OVER SCREER-->
-        <div id="gameover-screen" class="contieneTodo">
+        <img src="./imagenes/felicitos pierde.jpg"1400" height="1100">
+        <button id="gameoverscreen-button">INICIO</button>
+      </div>
 
-             <div id="score">SCORE:<span>0</span></div> 
+      <!--YOU WON GAME SCREER-->
+      <div id="youwon-screen" class="contieneTodo">
+        <div id="score">SCORE:<span>0</span></div>
 
-            <img src="./imagenes/felicitos pierde.jpg"1400" height="1100">
-            <button id="gameoverscreen-button">INICIO</button>
+        <img src="./imagenes/felicitos gana.jpg" width="1400" height="1100" />
 
-        </div>
-
-        <!--YOU WON GAME SCREER-->
-        <div id="youwon-screen" class="contieneTodo" >
-
-            <div id="score">SCORE:<span>0</span></div> 
-
-            <img src="./imagenes/felicitos gana.jpg" width="1400" height="1100">
-
-            <button id="youwonscreen-button">INICIO</button>
-        </div>
+        <button id="youwonscreen-button">INICIO</button>
+      </div>
     </div>
 
-    <footer id="footer" >
-        Programación y Diseño: Andi Rid3. Arte: Lucy Bruniard.
+    <footer id="footer">
+      Programación y Diseño: Andi Rid3. Arte: Armando A. Bruno.
     </footer>
 
-  <script src="javascript.js/main.js"></script>
-  <script src="javascript.js/juego.js"></script>
-  <script src = "javascript.js/felicitos.js"></script> 
-  <script src="javascript.js/yaMeless.js"></script>
-  <script src="javascript.js/rayo.js"></script>
-
-</body>
+    <script src="javascript.js/main.js"></script>
+    <script src="javascript.js/juego.js"></script>
+    <script src="javascript.js/felicitos.js"></script>
+    <script src="javascript.js/yaMeless.js"></script>
+    <script src="javascript.js/rayo.js"></script>
+  </body>
 </html>
