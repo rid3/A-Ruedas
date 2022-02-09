@@ -15,6 +15,6 @@ class Rayo {
   
   //se mueve, estaría bueno que aparezca, pasito a pasito
   apareceRayo = () => {
-  this.y = this.y - 5;
+  this.y = this.y - 6;
   }
 }

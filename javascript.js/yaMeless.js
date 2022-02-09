@@ -1,5 +1,5 @@
 class YaMeless {
-    constructor(posY) {
+    constructor(posY, velocityRandom) {
       //parametro que mandas para definir "y" en spwaningYaMeless
       this.img = new Image();
       this.img.src = "./imagenes/yaCorre.png";
@@ -7,7 +7,7 @@ class YaMeless {
       this.y = posY; //va a depender del argumento que le doy cuando la creo
       this.width = 120;
       this.height = 120;
-      this.velocity = 4;
+      this.velocity = 3 //velocityRandom; 
 
     }
   
@@ -19,4 +19,5 @@ class YaMeless {
     moveYaMeless = () => {
       this.x = this.x - this.velocity;
     };
+
   }

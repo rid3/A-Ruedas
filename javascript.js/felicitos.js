@@ -7,7 +7,7 @@ class Felicitos {
         this.y= 350;
         this.width = 130;
         this.height = 130;
-        this.move = 20;
+        this.move = 35;
     }
 
 

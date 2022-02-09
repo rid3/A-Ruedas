@@ -5,7 +5,7 @@ let wonGameScreen = document.querySelector("#youwon-screen");
 let reglasScreen = document.querySelector("#instrucciones-screen");
 
 let countScore = document.querySelector("#score span");
-let countScoreGana = document.querySelector("#score-gana");
+let countScoreGana = document.querySelector("#score-gana span");
 
 //const music = new Audio("/Paciencia II.mp3");
 
@@ -71,6 +71,7 @@ const youWonReStart = () => {
 const musicplease = () => {
   const audio = new Audio("./Paciencia II.mp3");
   audio.play();
+  audio.loop = true; 
 }
  
 
@@ -93,6 +94,8 @@ buttonReglasScreen.addEventListener("click", ahoraSi);
 let musicButton = document.querySelector("#music");
 musicButton.addEventListener("click",musicplease);
 
+// let musicButtonOf = document.querySelector("#musicof")
+// musicButtonOf.addEventListener
 
 
 //let audio = document.querySelector("audio");

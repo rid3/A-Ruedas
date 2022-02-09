@@ -8,11 +8,12 @@ class Juego {
             this.felicitos = new Felicitos(); //lo haces variable, para no tener que estar creándolo todo el tiempo
     
             //van arrays porque van a ser muchos en loop
-            this.yamelessArr =[new YaMeless(0)]; //argumento de posicion Y, donde empezas. 
+            this.yamelessArr =[new YaMeless(0,3)]; //argumento de posicion Y, donde empezas. 
             this.yamelessSeparation = 500; //cada cuánto van a salir
             this.rayoArr =[new Rayo(0)]; //array porque voy a crear muchos rayos
             this.rayoSeparation = 2500;
             this.rayoCount = 0;
+            this.dificultad = 0;
             
     
             this.juegoOn = true; //propiedad que voy a usar para acabar el juego, el loop de request animation frame.
@@ -31,6 +32,7 @@ class Juego {
             //console.log("yey")
             let randomY = Math.random() * 700 //creo el aleatoreo de posición
             let newYaMeless = new YaMeless(randomY) //estas creando otro objeto a la distancia que le dijiste que aparezca antes
+            newYaMeless.velocity += this.dificultad //suma la dificultad a la velocidad de Ya Meless antes que se agregue al array
             this.yamelessArr.push(newYaMeless) //agregando el nuevo que creaste al array que esta en las propiedades
     
         }
@@ -76,7 +78,7 @@ class Juego {
             this.felicitos.height + this.felicitos.y > eachRay.y) {
                 //console.log("lo hicimos lo hicimos lo hicimos muy bien, cruzamos el puente..")
                 //this.rayoArr.splice(eachRay[i],1);
-                (this.rayoCount += 1);
+                (this.rayoCount += 9);
              countScore.innerText = this.rayoCount;
              countScoreGana.innerText = this.rayoCount;
            
@@ -86,11 +88,30 @@ class Juego {
             this.rayoArr.splice(i, 1)
             this.rayoArr.push();
 
-            //(this.rayoCount += 1);
-            //countScore.innerText = this.rayoCount;
+            this.dificultad += 0.3; //velocidad de Ya Meless que afecta en el random
 
-            }
-     }
+
+
+            //que Ya Meless suba velocidad 
+            // this.yamelessArr.forEach ((eachYaMeless) => {
+            //     eachYaMeless.velocity += 2
+            // })
+          
+
+        }
+    }
+
+        
+         //SUMAR VELOCIDAD 
+        // yaMelessAumentaVelocidad = () => {
+        //     if (this.rayoArr > 0) {
+        //         this.yamelessArr += 10
+        //     }
+        // }            
+           
+
+            
+     
 
      printScore = () => {
          ctx.font = "20px monospace";
@@ -101,16 +122,14 @@ class Juego {
 
      //SET TIME OUT 
   
-    //  setTimeOutFunc = () => {
+    //   setTimeOutFunc = () => {
 
-    //     setTimeout ( () => {
+    //      setTimeout ( () => {
+    //          this.yamelessArr.forEach
 
-    //         this.juegoOn = false; 
-    //         canvasGameScreen.style.display = "none";
-    //         wonGameScreen.style.display = "flex";
 
-    //     }, 50000) 
-    //  }
+    //      }, 5000) 
+    //   }
 
 
         felicitosChoca = () => {
@@ -173,6 +192,7 @@ class Juego {
             this.choqueRayoFelicitos(eachRayo) //parametros para eliminar fueguitos
             
         });
+        //yaMelessAumentaVelocidad()
 
 
 
@@ -215,4 +235,5 @@ class Juego {
         }
     }
     
-    }
+}
+    
