@@ -8,7 +8,7 @@ let countScore = document.querySelector("#score span");
 let countScoreGana = document.querySelector("#score-gana span");
 
 //const music = new Audio("/Paciencia II.mp3");
-
+const audio = new Audio("./Paciencia II.mp3");
 
 
 let nuevoJuego;
@@ -25,6 +25,7 @@ const ctx = canvasGameScreen.getContext("2d");
 const startGame = () => {
   startGameScreen.style.display = "none";
   reglasScreen.style.display = "flex";
+  
   // music.play();
   // music.loop =true;
 };
@@ -69,12 +70,13 @@ const youWonReStart = () => {
 
 //botón música
 const musicplease = () => {
-  const audio = new Audio("./Paciencia II.mp3");
   audio.play();
   audio.loop = true; 
 }
- 
 
+const musicstop = () => {
+  audio.pause();
+}
 
 
 // * ADD EVENT LISTENERS
@@ -94,8 +96,8 @@ buttonReglasScreen.addEventListener("click", ahoraSi);
 let musicButton = document.querySelector("#music");
 musicButton.addEventListener("click",musicplease);
 
-// let musicButtonOf = document.querySelector("#musicof")
-// musicButtonOf.addEventListener
+ let musicButtonOf = document.querySelector("#musicof");
+ musicButtonOf.addEventListener("click", musicstop);
 
 
 //let audio = document.querySelector("audio");
