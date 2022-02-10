@@ -19,6 +19,7 @@ class Juego {
 
     this.rayodisparaArr = [];
     this.tengoRayo = false;
+    this.rayosBag = 0;
 
     this.juegoOn = true; //propiedad que voy a usar para acabar el juego, el loop de request animation frame.
   }
@@ -33,7 +34,7 @@ class Juego {
     if (this.yamelessArr.length === 0 || lastYaM.x < canvasGameScreen.width - this.yamelessSeparation) {
       //cuándo aparecerán
       //console.log("yey")
-      let randomY = Math.random() * 700; //creo el aleatoreo de posición
+      let randomY = Math.random() * canvasGameScreen.height - 120; //creo el aleatoreo de posición
       let newYaMeless = new YaMeless(randomY); //estas creando otro objeto a la distancia que le dijiste que aparezca antes
       newYaMeless.velocity += this.dificultad; //suma la dificultad a la velocidad de Ya Meless antes que se agregue al array
       this.yamelessArr.push(newYaMeless); //agregando el nuevo que creaste al array que esta en las propiedades
@@ -99,9 +100,8 @@ class Juego {
   };
 
 
-  choqueRayoYaMeless = (eachYaMe, i) => {
+  choqueRayoYaMeless = (eachYaMe, i, eachRayoDisp, i2) => {
 
-    this.rayodisparaArr.forEach ((eachRayoDisp) => {
       if (
         eachRayoDisp.x < eachYaMe.x + eachYaMe.width &&
         eachRayoDisp.x + eachRayoDisp.width > eachYaMe.x &&
@@ -109,21 +109,15 @@ class Juego {
         eachRayoDisp.height + eachRayoDisp.y > eachYaMe.y
       ) {
           //console.log("estan chocando")
-          this.yamelessArr.splice(i, 1);
-          this.yamelessArr.push();
 
-          //this.rayodisparaArr.splice(i,1);
+          this.rayodisparaArr.splice(i2,1);
+
+          this.yamelessArr.splice(i, 1);
+        
       }
 
-    });
 
   }
-
-
-
-
-
-
 
   printScore = () => {
     ctx.font = "20px monospace";
@@ -131,9 +125,12 @@ class Juego {
     ctx.fillText("Score: " + this.rayoCount, 780, 40);
   };
 
+
+
+
 apareceRayoDispara = () => {
     //console.log("hola")
-    if (this.tengoRayo === true ) {
+    if (this.tengoRayo === true) {
         let newRayo = new RayoDispara(this.felicitos.x, this.felicitos.y);
         this.rayodisparaArr.push(newRayo);  
         this.tengoRayo = false;
@@ -195,9 +192,19 @@ apareceRayoDispara = () => {
       this.choqueYaMelessFelicitos(eachYaM); //le pasa el parámetro el for each
     });
 
-    this.yamelessArr.forEach((eachYame) => {
-        this.choqueRayoYaMeless(eachYame);
+    this.yamelessArr.forEach((eachYame, i) => { 
+        // let eachElement = ...
+        // let i = ...
+        this.rayodisparaArr.forEach ((eachRayo, i2) => {
+            // let eachElement = ...
+            // let i = ...
+            // console.log(eachYame, i, eachRayo, i2)
+        this.choqueRayoYaMeless(eachYame,i, eachRayo,i2);
+        });
+
     });
+
+
 
     //----------RAYO SE MUEVE---
     //confirmado rayo se mueve sobre eje Y
@@ -211,8 +218,8 @@ apareceRayoDispara = () => {
 
 
     //agarrando cada rayo y viendo si se chocan
-    this.rayoArr.forEach((eachRayo) => {
-      this.choqueRayoFelicitos(eachRayo); //parametros para eliminar fueguitos
+    this.rayoArr.forEach((eachRayo, i) => {
+      this.choqueRayoFelicitos(eachRayo, i); //parametros para eliminar fueguitos
     });
 
    
