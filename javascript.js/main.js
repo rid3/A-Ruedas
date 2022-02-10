@@ -105,7 +105,7 @@ musicButton.addEventListener("click",musicplease);
 //PARA MOVER A FELICITOS
 
 document.addEventListener("keydown", (event) => {
-  //console.log(event.key) me las reconoció
+  //console.log(event.key) //me las reconoció
   if (event.key === "ArrowRight") {
     nuevoJuego.felicitos.adelanteFelicitos();
   } else if (event.key === "ArrowLeft") {
@@ -114,5 +114,9 @@ document.addEventListener("keydown", (event) => {
     nuevoJuego.felicitos.abajoFelicitos();
   } else if (event.key === "ArrowUp") {
     nuevoJuego.felicitos.arribaFelicitos();
+   } else if (event.key === "a") {
+  // console.log(event.key)
+     nuevoJuego.apareceRayoDispara();
   }
 });
+
