@@ -8,7 +8,7 @@ class Juego {
     this.felicitos = new Felicitos(); //lo haces variable, para no tener que estar creándolo todo el tiempo
 
     //van arrays porque van a ser muchos en loop
-    this.yamelessArr = [new YaMeless(0, 3)]; //argumento de posicion Y, donde empezas. No me acuerod por qué puse el tres
+    this.yamelessArr = [new YaMeless(0)]; //argumento de posicion Y, donde empezas. No me acuerod por qué puse el tres
     this.yamelessSeparation = 500; //cada cuánto van a salir
 
     this.rayoArr = [new Rayo(0)]; //array porque voy a crear muchos rayos
@@ -34,7 +34,7 @@ class Juego {
     if (this.yamelessArr.length === 0 || lastYaM.x < canvasGameScreen.width - this.yamelessSeparation) {
       //cuándo aparecerán
       //console.log("yey")
-      let randomY = Math.random() * canvasGameScreen.height - 120; //creo el aleatoreo de posición
+      let randomY = Math.random() * 420 //canvasGameScreen.height - 120 ; //creo el aleatoreo de posición
       let newYaMeless = new YaMeless(randomY); //estas creando otro objeto a la distancia que le dijiste que aparezca antes
       newYaMeless.velocity += this.dificultad; //suma la dificultad a la velocidad de Ya Meless antes que se agregue al array
       this.yamelessArr.push(newYaMeless); //agregando el nuevo que creaste al array que esta en las propiedades
@@ -68,7 +68,7 @@ class Juego {
       this.rayoArr.length === 0 ||
       lastRayo.y < canvasGameScreen.height - this.rayoSeparation
     ) {
-      let randomX = Math.random() * 800;
+      let randomX = Math.random() * 700;
       let newRayo = new Rayo(randomX);
       this.rayoArr.push(newRayo);
     }
@@ -93,7 +93,7 @@ class Juego {
       this.rayoArr.splice(i, 1);
       this.rayoArr.push();
 
-      this.dificultad += 0.3; //velocidad de Ya Meless que afecta en el random
+      this.dificultad += 0.2; //velocidad de Ya Meless que afecta en el random
 
       this.tengoRayo = true; //para sumar un rayo y poder dispararlo 
     }
@@ -113,6 +113,10 @@ class Juego {
           this.rayodisparaArr.splice(i2,1);
 
           this.yamelessArr.splice(i, 1);
+
+          this.rayoCount += 20;
+          countScore.innerText = this.rayoCount;
+          countScoreGana.innerText = this.rayoCount;
         
       }
 
@@ -121,8 +125,9 @@ class Juego {
 
   printScore = () => {
     ctx.font = "20px monospace";
-    ctx.fillStyle = "#000000";
-    ctx.fillText("Score: " + this.rayoCount, 780, 40);
+    ctx.fillStyle = "red";
+
+    ctx.fillText("SCORE : " + this.rayoCount, 800, 40);
   };
 
 
@@ -130,12 +135,12 @@ class Juego {
 
 apareceRayoDispara = () => {
     //console.log("hola")
-    if (this.tengoRayo === true) {
-        let newRayo = new RayoDispara(this.felicitos.x, this.felicitos.y);
-        this.rayodisparaArr.push(newRayo);  
-        this.tengoRayo = false;
-        };
-    }
+     if (this.tengoRayo === true) {
+         let newRayo = new RayoDispara(this.felicitos.x, this.felicitos.y);
+         this.rayodisparaArr.push(newRayo);  
+         this.tengoRayo = false
+         };
+     }
 
 
 
