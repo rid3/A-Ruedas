@@ -8,7 +8,7 @@ let countScore = document.querySelector("#score span");
 let countScoreGana = document.querySelector("#score-gana span");
 
 //const music = new Audio("/Paciencia II.mp3");
-const audio = new Audio("../ahorasifelicitos.mp3");
+const audio = new Audio("./ahorasifelicitos.mp3");
 
 
 let nuevoJuego;
