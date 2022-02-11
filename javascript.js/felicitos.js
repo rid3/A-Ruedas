@@ -12,14 +12,13 @@ class Felicitos {
 
 
 //MÉTODOS
-//que se vea
 
+//dibujando
 drawFelicitos = () => {
     ctx.drawImage (this.img, this.x, this.y, this.width, this.height )
 }
 
-//que se mueva
-
+//movimientos
  adelanteFelicitos = () => {
      this.x = this.x + this.move
      }
@@ -35,7 +34,6 @@ drawFelicitos = () => {
  arribaFelicitos = () => {
      this.y = this.y - this.move
  }
-
 
 
 }

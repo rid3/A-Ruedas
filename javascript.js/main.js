@@ -4,20 +4,19 @@ let looseGameScreen = document.querySelector("#gameover-screen");
 let wonGameScreen = document.querySelector("#youwon-screen");
 let reglasScreen = document.querySelector("#instrucciones-screen");
 
+//score
 let countScore = document.querySelector("#score span");
 let countScoreGana = document.querySelector("#score-gana span");
 
-//const music = new Audio("/Paciencia II.mp3");
+//música
 const audio = new Audio("./ahorasifelicitos.mp3");
 
-
+//On Of variable
 let nuevoJuego;
 
 //CANVAS VARIABLES
 let canvasGameScreen = document.querySelector("#my-canvas");
 const ctx = canvasGameScreen.getContext("2d");
-
-
 
 // * STATE MANAGEMENT FUNCTIONS
 
@@ -25,37 +24,19 @@ const ctx = canvasGameScreen.getContext("2d");
 const startGame = () => {
   startGameScreen.style.display = "none";
   reglasScreen.style.display = "flex";
-  
-  // music.play();
-  // music.loop =true;
 };
 
-
-
-
-//* IR A JUGAR
+//botón para ir a jugar
 const ahoraSi = () => {
   reglasScreen.style.display = "none";
   canvasGameScreen.style.display = "flex";
   //acción para que empiece/se cree el juego:
   nuevoJuego = new Juego();
-  //console.log(nuevoJuego);
-
-  //nuevoJuego.felicitosChoca();
-
-  // nuevoJuego.setTimeOutFunc();
   nuevoJuego.loopJuego();
-
-
 };
-
-
-
-
 
 //botón desde loose screen para volver a empezar
 const looseButtonReStart = () => {
-  //console.log(looseGameScreen)
   looseGameScreen.style.display = "none";
   startGameScreen.style.display = "flex";
 };
@@ -66,18 +47,15 @@ const youWonReStart = () => {
   startGameScreen.style.display = "flex";
 };
 
-
-
-//botón música
+//botónes música
 const musicplease = () => {
   audio.play();
-  audio.loop = true; 
-}
+  audio.loop = true;
+};
 
 const musicstop = () => {
   audio.pause();
-}
-
+};
 
 // * ADD EVENT LISTENERS
 
@@ -94,18 +72,14 @@ let buttonReglasScreen = document.querySelector("#reglas-button");
 buttonReglasScreen.addEventListener("click", ahoraSi);
 
 let musicButton = document.querySelector("#music");
-musicButton.addEventListener("click",musicplease);
+musicButton.addEventListener("click", musicplease);
 
- let musicButtonOf = document.querySelector("#musicof");
- musicButtonOf.addEventListener("click", musicstop);
-
-
-//let audio = document.querySelector("audio");
+let musicButtonOf = document.querySelector("#musicof");
+musicButtonOf.addEventListener("click", musicstop);
 
 //PARA MOVER A FELICITOS
 
 document.addEventListener("keydown", (event) => {
-  //console.log(event.key) //me las reconoció
   if (event.key === "ArrowRight") {
     nuevoJuego.felicitos.adelanteFelicitos();
   } else if (event.key === "ArrowLeft") {
@@ -114,9 +88,8 @@ document.addEventListener("keydown", (event) => {
     nuevoJuego.felicitos.abajoFelicitos();
   } else if (event.key === "ArrowUp") {
     nuevoJuego.felicitos.arribaFelicitos();
-   } else if (event.key === "a") {
-  // console.log(event.key)
-     nuevoJuego.apareceRayoDispara();
+  } else if (event.key === "a") {
+    //tecla para tirar rayos
+    nuevoJuego.apareceRayoDispara();
   }
 });
-
