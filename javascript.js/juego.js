@@ -7,15 +7,15 @@ class Juego {
     this.bgImage.src = "./imagenes/concrete.jpg";
     this.felicitos = new Felicitos(); //lo haces variable, para no tener que estar creándolo todo el tiempo
 
-    //van arrays porque van a ser muchos en loop
-    this.yamelessArr = [new YaMeless(0)]; //argumento de posicion Y, donde empezas. No me acuerod por qué puse el tres
+    //arrays porque van a ser muchos en loop
+    this.yamelessArr = [new YaMeless(0)]; //parametro Y de la clase.
     this.yamelessSeparation = 500; //cada cuánto van a salir
-
-    this.rayoArr = [new Rayo(0)]; //array porque voy a crear muchos rayos
+    
+    this.rayoArr = [new Rayo(0)]; //parametro X de la clase.
     this.rayoSeparation = 2500;
-    this.rayoCount = 0;
+    this.rayoCount = 0; //score
 
-    this.dificultad = 0;
+    this.dificultad = 0; //crecimiento de velocidad Ya Meless
 
     this.rayodisparaArr = [];
     this.tengoRayo = false;
@@ -27,21 +27,23 @@ class Juego {
   //FUNCIONES------------------------------------------------------
 
   //YA MELESS----------------
-  //que aparezca muchas veces, que se repita.
-  spawningYaMeless = () => {
-    let lastYaM = this.yamelessArr[this.yamelessArr.length - 1]; //agarramos el último/primero
 
-    if (this.yamelessArr.length === 0 || lastYaM.x < canvasGameScreen.width - this.yamelessSeparation) {
+  spawningYaMeless = () => {
+    let lastYaM = this.yamelessArr[this.yamelessArr.length - 1]; //agarramos el último
+
+    if (
+      this.yamelessArr.length === 0 ||
+      lastYaM.x < canvasGameScreen.width - this.yamelessSeparation
+    ) {
       //cuándo aparecerán
-      //console.log("yey")
-      let randomY = Math.random() * 420 //canvasGameScreen.height - 120 ; //creo el aleatoreo de posición
+      let randomY = Math.random() * 420; //creo el aleatoreo de posición
       let newYaMeless = new YaMeless(randomY); //estas creando otro objeto a la distancia que le dijiste que aparezca antes
       newYaMeless.velocity += this.dificultad; //suma la dificultad a la velocidad de Ya Meless antes que se agregue al array
       this.yamelessArr.push(newYaMeless); //agregando el nuevo que creaste al array que esta en las propiedades
     }
   };
 
-  //funcion para chequear si chocaron,con parámetro eachYaMl viene el argumento que te manda la invocación de función en el for each
+  //funcion para chequear si chocaron, parámetro eachYaMl viene el argumento que te manda la invocación de función en el for each.
   choqueYaMelessFelicitos = (eachYaMl) => {
     //mdn collision 2d
     if (
@@ -50,7 +52,7 @@ class Juego {
       this.felicitos.y < eachYaMl.y + eachYaMl.height &&
       this.felicitos.height + this.felicitos.y > eachYaMl.y
     ) {
-      /*console.log("chocarooon") acá debería terminar el juego*/
+      /*acá termina el juego*/
       this.juegoOn = false;
 
       canvasGameScreen.style.display = "none";
@@ -59,9 +61,9 @@ class Juego {
   };
 
   //RAYO--------------
-  //funcion para aleatorio rayo
+
   spawningRayo = () => {
-    //creo la variable sobre la que voy a actuar, la que va a servir de referencia
+    //variable sobre la que voy a actuar, la que va a servir de referencia
     let lastRayo = this.rayoArr[this.rayoArr.length - 1];
 
     if (
@@ -73,56 +75,53 @@ class Juego {
       this.rayoArr.push(newRayo);
     }
   };
-  //dos parámetros para poder borrar el elemento
+
   choqueRayoFelicitos = (eachRay, i) => {
+    //dos parámetros para poder borrar el elemento
     if (
       this.felicitos.x < eachRay.x + eachRay.width &&
       this.felicitos.x + this.felicitos.width > eachRay.x &&
       this.felicitos.y < eachRay.y + eachRay.height &&
       this.felicitos.height + this.felicitos.y > eachRay.y
     ) {
-      //console.log("lo hicimos lo hicimos lo hicimos muy bien, cruzamos el puente..")
-
+      //score
       this.rayoCount += 9;
       countScore.innerText = this.rayoCount;
       countScoreGana.innerText = this.rayoCount;
 
-      //QUE DESAPAREZCA 1. que lo reconozca 2. que agarre ese que choca (con el index) y lo saque del canvas (o del array? splice) si lo saca del array tmb lo saca del canvas.
-      //el error: Uncaught TypeError: Cannot read properties of undefined (reading 'y')
-
+      //desaparece rayo
       this.rayoArr.splice(i, 1);
       this.rayoArr.push();
 
-      this.dificultad += 0.2; //velocidad de Ya Meless que afecta en el random
+      //va subiendo la velocidad Ya Meless
+      this.dificultad += 0.2;
 
-      this.tengoRayo = true; //para sumar un rayo y poder dispararlo 
+      //propiedad para sumar un rayo y poder dispararlo
+      this.tengoRayo = true;
     }
   };
 
-
   choqueRayoYaMeless = (eachYaMe, i, eachRayoDisp, i2) => {
+    if (
+      eachRayoDisp.x < eachYaMe.x + eachYaMe.width &&
+      eachRayoDisp.x + eachRayoDisp.width > eachYaMe.x &&
+      eachRayoDisp.y < eachYaMe.y + eachYaMe.height &&
+      eachRayoDisp.height + eachRayoDisp.y > eachYaMe.y
+    ) {
+      //desaparece rayo
+      this.rayodisparaArr.splice(i2, 1);
 
-      if (
-        eachRayoDisp.x < eachYaMe.x + eachYaMe.width &&
-        eachRayoDisp.x + eachRayoDisp.width > eachYaMe.x &&
-        eachRayoDisp.y < eachYaMe.y + eachYaMe.height &&
-        eachRayoDisp.height + eachRayoDisp.y > eachYaMe.y
-      ) {
-          //console.log("estan chocando")
+      //desaparece Ya Meless
+      this.yamelessArr.splice(i, 1);
 
-          this.rayodisparaArr.splice(i2,1);
+      //score
+      this.rayoCount += 20;
+      countScore.innerText = this.rayoCount;
+      countScoreGana.innerText = this.rayoCount;
+    }
+  };
 
-          this.yamelessArr.splice(i, 1);
-
-          this.rayoCount += 20;
-          countScore.innerText = this.rayoCount;
-          countScoreGana.innerText = this.rayoCount;
-        
-      }
-
-
-  }
-
+  //score en CANVAS
   printScore = () => {
     ctx.font = "20px monospace";
     ctx.fillStyle = "red";
@@ -130,30 +129,25 @@ class Juego {
     ctx.fillText("SCORE : " + this.rayoCount, 800, 40);
   };
 
+  //disparando rayos
+  apareceRayoDispara = () => {
+    if (this.tengoRayo === true) {
+      let newRayo = new RayoDispara(this.felicitos.x, this.felicitos.y);
+      this.rayodisparaArr.push(newRayo);
+      this.tengoRayo = false;
+    }
+  };
 
-
-
-apareceRayoDispara = () => {
-    //console.log("hola")
-     if (this.tengoRayo === true) {
-         let newRayo = new RayoDispara(this.felicitos.x, this.felicitos.y);
-         this.rayodisparaArr.push(newRayo);  
-         this.tengoRayo = false
-         };
-     }
-
-
-
-
+  //felicitos choca contra canvas width y llega al escenario, gana.
   felicitosChoca = () => {
     if (this.felicitos.x > canvasGameScreen.width) {
-      this.juegoOn = false; //console.log("chocó") esto funcionó
+      this.juegoOn = false;
       canvasGameScreen.style.display = "none";
       wonGameScreen.style.display = "flex";
     }
   };
 
-  //BG IMG--------------------------
+  //BACKGROUND IMG--------------------------
   drawBgImage = () => {
     ctx.drawImage(
       this.bgImage,
@@ -169,110 +163,85 @@ apareceRayoDispara = () => {
     ctx.clearRect(0, 0, canvasGameScreen.width, canvasGameScreen.height);
   };
 
-
-
   //*LOOP JUEGO LOOP JUEGO LOOP JUEGO LOOP JUEGO LOOP JUEGO
 
-
   loopJuego = () => {
-    //console.log("anda el request");
-
-    //1.Limpiar el canvas
+    //Limpia el canvas
     this.clearCanvas();
 
-    //2.Mover los elementos
-
-    //-----YA MELESS SE MUEVE---
-
-
+    //-----YA MELESS--- se crea, se mueve.
     this.yamelessArr.forEach((eachYa) => {
       eachYa.moveYaMeless();
     });
 
     this.spawningYaMeless(); //loop de Ya Meless aleatorio
 
-    //acá chequeo con el for each cada ya meless (muchos ya meless un solo felicitos)
+    //CHOQUE YA MELESS Y FELICITOS
+    //acá chequeo con el for each cada Ya Meless (muchos Ya Meless un sólo felicitos)
     this.yamelessArr.forEach((eachYaM) => {
       //invoco a la función que chequea si chocaron
       this.choqueYaMelessFelicitos(eachYaM); //le pasa el parámetro el for each
     });
 
-    this.yamelessArr.forEach((eachYame, i) => { 
-        // let eachElement = ...
-        // let i = ...
-        this.rayodisparaArr.forEach ((eachRayo, i2) => {
-            // let eachElement = ...
-            // let i = ...
-            // console.log(eachYame, i, eachRayo, i2)
-        this.choqueRayoYaMeless(eachYame,i, eachRayo,i2);
-        });
+    //CHOQUE YA MELESS Y RAYO
+    this.yamelessArr.forEach((eachYame, i) => {
+      //chequeo cada Ya Meless
 
+      this.rayodisparaArr.forEach((eachRayo, i2) => {
+        //chequeo cada Rayo
+
+        this.choqueRayoYaMeless(eachYame, i, eachRayo, i2); //invocando función de choque
+      });
     });
 
+    //----------RAYO--
 
-
-    //----------RAYO SE MUEVE---
-    //confirmado rayo se mueve sobre eje Y
     this.rayoArr.forEach((eachRay) => {
       eachRay.apareceRayo();
     });
 
     this.spawningRayo(); //aparece aleatoreamente
 
-
-
-
+    //CHOQUE RAYO Y FELICITOS
     //agarrando cada rayo y viendo si se chocan
     this.rayoArr.forEach((eachRayo, i) => {
-      this.choqueRayoFelicitos(eachRayo, i); //parametros para eliminar fueguitos
+      this.choqueRayoFelicitos(eachRayo, i); //parametros para eliminar rayos una vez agarrados
     });
 
-   
-
-    //FELICITOS CHOCA
+    //FELICITOS CHOCA, gana juego
     this.felicitosChoca();
 
-    //3.Dibujar los elementos
-    //dibujo el bgImage
+    //DIBUJANDO BACKGROUND IMG
     this.drawBgImage();
 
-     this.rayodisparaArr.forEach((eachDispara) => {
-         eachDispara.drawRayoDispara();
-       });
-
-       this.rayodisparaArr.forEach ((eachRayoD) => {
-        eachRayoD.movimientoRayoDispara();
+    //--RAYOS DISPARADOS
+    //dibujado y movimiento.
+    this.rayodisparaArr.forEach((eachDispara) => {
+      eachDispara.drawRayoDispara();
     });
 
+    this.rayodisparaArr.forEach((eachRayoD) => {
+      eachRayoD.movimientoRayoDispara();
+    });
 
+    //DIBUJANDO FELICITOS
     this.felicitos.drawFelicitos();
 
-    //lo llamo así porque es un array
+    //DIBUJANDO A YA MELESS
     this.yamelessArr.forEach((eachYaMeless) => {
       eachYaMeless.drawYaMeless();
     });
 
-    //confirmado que rayo aparece
+    //DIBUJANDO RAYOS
     this.rayoArr.forEach((eachRayo) => {
       eachRayo.drawRayo();
     });
 
-    //pintando rayodispara
- 
-
-     
-
-    //this.rayodisparaArr.movimientoRayoDispara();
-
-
-    // this.apareceRayoDispara();
-
-
+    //SCORE
     this.printScore();
 
-    //ACÁ PONGO EL SCORE?
-
-    //4.Recursión para la animación, crea el loop, se autollama a si misma. Con propiedad en condicional que si es false va a hacer que pare.
+    //RECURSIÓN PARA LA ANIMACIÓN
+    //crea el loop, se autollama a si misma. Con propiedad en condicional que si es false va a hacer que pare.
 
     if (this.juegoOn === true) {
       requestAnimationFrame(this.loopJuego);
