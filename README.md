@@ -89,7 +89,7 @@ https://rid3.github.io/A-Ruedas/
 
 
 
-![64B5FB9E-3EE5-43D9-BE5C-A355F2386832](https://user-images.githubusercontent.com/98284387/153593893-68bf176d-97d9-4b5b-a6bc-2fb0cf471bca.jpg)
+![E5889EA6-758F-4C1A-90ED-74AB3A9F5F36](https://user-images.githubusercontent.com/98284387/153594328-b2438e05-d37b-4df2-9854-940ffa7eda38.jpg)
 
 
 
