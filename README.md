@@ -1,3 +1,4 @@
+
 >Project's name:
 
 A Ruedas
@@ -85,4 +86,9 @@ https://trello.com/rid310/home
 
 >Game
 https://rid3.github.io/A-Ruedas/
+
+
+![yaCorre](https://user-images.githubusercontent.com/98284387/153593384-26ac96ce-b1d3-4599-98c1-6f140e871180.png)
+
+
 
