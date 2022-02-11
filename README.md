@@ -88,7 +88,8 @@ https://trello.com/rid310/home
 https://rid3.github.io/A-Ruedas/
 
 
-![yaCorre](https://user-images.githubusercontent.com/98284387/153593384-26ac96ce-b1d3-4599-98c1-6f140e871180.png)
+
+![64B5FB9E-3EE5-43D9-BE5C-A355F2386832](https://user-images.githubusercontent.com/98284387/153593893-68bf176d-97d9-4b5b-a6bc-2fb0cf471bca.jpg)
 
 
 
