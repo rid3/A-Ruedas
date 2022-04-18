@@ -33,8 +33,6 @@ Footer: credits.
 
 -Score (incrementing with the rays you get).
 -Backgroun music.
--En splash screen get name of player.
--When ending the game, in the canvas appears a door to the stablishment where the gig will be, pass throw it and win.
 -More than one character to play with, different scenarios and mosnters.   
 
 >Data Structure
@@ -65,20 +63,6 @@ Functions:
 - End game
 - Colisions
 - Spawnings
-
-
-> Where to start?!
-
-Create html with basic structure. Link css and js folders. Create a js folder for each class, one for de game, and de main one with the start and finish functions calls.
-Create canvas in second screen. Link canvas to js folder. 
-Creat start and end functions. 
-Put backgroudn image to canvas. Start by making Felicitos move. Continue with Ya Meless, make Colision and check if it works. Make Rays, make Colision, check if it works. 
-Create splash screen, check if button to start works. 
-Create instruction scree, check if button works. 
-Create win screen, check if button incio and link works.
-Create loose screen, check if button restart works.
-Add music. 
-Work on css. 
 
 
 >Trello 
