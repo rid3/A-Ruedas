@@ -1,12 +1,8 @@
 
->Project's name:
 
 # A Ruedas
 
-
-## Description:
-
-A Ruedas consist in helping Felicitos, a Drag King who loves to skate, arrive at his gig. Felicitos has to overcame the shame monster "Ya Meless", because sometimes, getting to the stage can be more difficult than it seems.  
+A Ruedas is a game that consist on helping Felicitos, a Drag King who loves to skate, arrive at his gig. Felicitos has to overcame the shame monster "Ya Meless", because sometimes, getting to the stage can be more difficult than it seems. 
 
 
 
