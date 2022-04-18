@@ -1,16 +1,16 @@
 
 >Project's name:
 
-A Ruedas
+# A Ruedas
 
 
->Description:
+## Description:
 
 A Ruedas consist in helping Felicitos, a Drag King who loves to skate, arrive at his gig. Felicitos has to overcame the shame monster "Ya Meless", because sometimes, getting to the stage can be more difficult than it seems.  
 
 
 
->MVP
+## MVP
 
 Four screens:
 - Splash screen:
@@ -29,13 +29,13 @@ Image of Felicitos sad. Button to try again.
 Footer: credits. 
 
 
->Backlog // Bonus
+## Backlog // Bonus
 
--Score (incrementing with the rays you get).
--Backgroun music.
--More than one character to play with, different scenarios and mosnters.   
+- Score (incrementing with the rays you get).
+- Backgroun music.
+- More than one character to play with, different scenarios and mosnters.   
 
->Data Structure
+## Data Structure
 
 - Class Felicitos:
 Felicitos png. and properties. Initial position. 
@@ -44,19 +44,19 @@ Movements : right, left, up, down.
 Draw. 
 
 
-- Class Ya Meless:
+## Class Ya Meless:
 Ya Meless png. and properties. Initial position.
 Methods:
 Movements : + to - in x. 
 Draw. 
 
-- Class Rays:
+## Class Rays:
 Rays png. and properties.  
 Method:
 Draw.
 Movement : + to - in y.
 
-- Class Rays to shoot at Ya Meless 
+## Class Rays to shoot at Ya Meless 
 
 Functions:
 - To start game
@@ -65,10 +65,10 @@ Functions:
 - Spawnings
 
 
->Trello 
+# Trello 
 https://trello.com/rid310/home
 
->Game
+# Deployed Game
 https://rid3.github.io/A-Ruedas/
 
 
