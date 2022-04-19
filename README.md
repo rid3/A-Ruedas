@@ -61,9 +61,6 @@ Functions:
 - Spawnings
 
 
-# Trello 
-https://trello.com/rid310/home
-
 # Deployed Game
 https://rid3.github.io/A-Ruedas/
 
